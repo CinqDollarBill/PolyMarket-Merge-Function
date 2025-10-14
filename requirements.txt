@@ -1,0 +1,10 @@
+# Core dependencies
+web3==6.11.3
+eth-account==0.9.0
+python-dotenv==1.0.1
+
+# helper
+requests>=2.31.0
+
+# Local ABI modules
+-e ./api
