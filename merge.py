@@ -34,12 +34,8 @@ def merge_tokens(condition_id, amount=None, neg_risk=False):
         w3 = Web3(Web3.HTTPProvider(rpc_url))
         
         # Inject POA middleware for Polygon
-        try:
-            from web3.middleware import geth_poa_middleware
-            w3.middleware_onion.inject(geth_poa_middleware, layer=0)
-        except ImportError:
-            from web3.middleware import ExtraDataToPOAMiddleware
-            w3.middleware_onion.inject(ExtraDataToPOAMiddleware, layer=0)
+        from web3.middleware import ExtraDataToPOAMiddleware
+        w3.middleware_onion.inject(ExtraDataToPOAMiddleware, layer=0)
         
         # Load wallet and safe
         private_key = os.getenv("PK")
